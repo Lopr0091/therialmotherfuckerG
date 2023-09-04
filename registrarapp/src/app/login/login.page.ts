@@ -27,19 +27,14 @@ export class LoginPage implements OnInit {
       await alert.present();
     }
     iniciarSesion() {
-      // Verificar que el nombre de usuario tenga un largo adecuado
       if (this.username.length < 3 || this.username.length > 8) {
         console.log('Nombre de usuario debe tener entre 3 y 8 caracteres');
         return;
       }
-
-      // Verificar las credenciales (esto es solo un ejemplo)
       if (this.username === 'usuario' && this.password === 'contraseña') {
-        // Inicio de sesión exitoso, navegar a otra página
         this.AuthService.setUsername(this.username);
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/inicio');
       } else {
-        // Inicio de sesión fallido, mostrar mensaje de error o tomar otra acción
         console.log('Credenciales inválidas');
         this.presentAlert()
       }
