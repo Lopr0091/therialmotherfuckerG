@@ -1,9 +1,3 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -13,13 +7,25 @@
 
   <img src="assets/imagenes/Logo_DuocUC.png" alt="Mi Imagen" style="width: 300px; height: auto;" />
 
-  <ion-item>
-    <ion-label position="floating">usuario</ion-label>
-    <ion-input [(ngModel)]="username" type="username"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Contraseña</ion-label>
-    <ion-input [(ngModel)]="password" type="password"></ion-input>
-  </ion-item>
-  <ion-button color="secondary"(click)="iniciarSesion()">Volver a Home</ion-button>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Inicio de sesion</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div id="Conteiner">
+        <ion-item>
+          <ion-label position="floating">usuario</ion-label>
+          <ion-input [(ngModel)]="username" type="username"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input [(ngModel)]="password" type="password"></ion-input>
+        </ion-item>
+        <ion-button color="secondary"(click)="iniciarSesion()">Iniciar Sesion</ion-button>
+        </div>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
