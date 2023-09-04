@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {UsuarioService} from '../usuario.service';
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.page.html',
@@ -7,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioPage implements OnInit {
 
-  constructor() { }
-
+  constructor(private usuarioService: UsuarioService) { }
+  getUsername(): string{
+    return this.usuarioService.getUsername();
+  }
   ngOnInit() {
   }
 

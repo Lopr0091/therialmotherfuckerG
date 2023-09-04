@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { AlertController } from '@ionic/angular';
-
+import {UsuarioService} from'../usuario.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -12,7 +12,10 @@ export class LoginPage implements OnInit {
   public username: string = ''; // Inicialización de propiedades
   public password: string = '';
 
-  constructor(private router: Router, private AuthService: AuthService, private alertController: AlertController) {}
+  constructor(private router: Router, 
+    private AuthService: AuthService, 
+    private alertController: AlertController,
+    private usuarioService: UsuarioService) {}
     irHome(){
       this.router.navigate(['/home'])
     }
@@ -33,6 +36,7 @@ export class LoginPage implements OnInit {
       }
       if (this.username === 'usuario' && this.password === 'contraseña') {
         this.AuthService.setUsername(this.username);
+        this.usuarioService.setUsername(this.username);
         this.router.navigateByUrl('/inicio');
       } else {
         console.log('Credenciales inválidas');
