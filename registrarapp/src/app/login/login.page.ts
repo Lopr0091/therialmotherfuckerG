@@ -12,8 +12,7 @@ export class LoginPage implements OnInit {
   public username: string = ''; // Inicialización de propiedades
   public password: string = '';
 
-  constructor(private router: Router, 
-    private AuthService: AuthService, 
+  constructor(private router: Router,  
     private alertController: AlertController,
     private usuarioService: UsuarioService) {}
     irHome(){
@@ -35,7 +34,6 @@ export class LoginPage implements OnInit {
         return;
       }
       if (this.username === 'usuario' && this.password === 'contraseña') {
-        this.AuthService.setUsername(this.username);
         this.usuarioService.setUsername(this.username);
         this.router.navigateByUrl('/inicio');
       } else {
