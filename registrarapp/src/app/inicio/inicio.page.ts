@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UsuarioService} from '../usuario.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.page.html',
@@ -7,11 +8,13 @@ import {UsuarioService} from '../usuario.service';
 })
 export class InicioPage implements OnInit {
 
-  
-
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(private usuarioService: UsuarioService,
+    private router: Router) { }
   getUsername(): string{
     return this.usuarioService.getUsername();
+  }
+  irHorario() {
+    this.router.navigate(['/horario'])
   }
   ngOnInit() {
   }

@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'avatar',
     loadChildren: () => import('./avatar/avatar.module').then( m => m.AvatarPageModule)
   },
+  {
+    path: 'horario',
+    loadChildren: () => import('./horario/horario.module').then( m => m.HorarioPageModule)
+  },
 
 ];
 
