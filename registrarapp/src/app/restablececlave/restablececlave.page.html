@@ -1,9 +1,3 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>restablececlave</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -11,13 +5,17 @@
     </ion-toolbar>
   </ion-header>
 
-
-  <ion-card-content>
-    <ion-item class="neon-black">
-      <ion-label position="floating" class="neon-blue">Correo de Usuario</ion-label>
-      <ion-input [(ngModel)]="username" type="text" class="neon-blue"></ion-input>
-    </ion-item>
-    <ion-button color="secondary"(click)="EnvioCorreo()">restablecer Contraseña</ion-button>
-    <ion-button color="warning"(click)="volverlogin()">Volver</ion-button>
-  </ion-card-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-card-header>
+        <ion-card-title>Restaurar contraseña</ion-card-title>
+      </ion-card-header>
+      <ion-item class="neon-black">
+        <ion-label position="floating" class="neon-blue">Correo de Usuario</ion-label>
+        <ion-input [(ngModel)]="username" type="text" class="neon-blue"></ion-input>
+      </ion-item>
+      <ion-button color="secondary" (click)="EnvioCorreo()">restablecer Contraseña</ion-button>
+      <ion-button color="warning" (click)="volverlogin()">Volver</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
