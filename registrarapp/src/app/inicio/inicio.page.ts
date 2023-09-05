@@ -7,6 +7,8 @@ import {UsuarioService} from '../usuario.service';
 })
 export class InicioPage implements OnInit {
 
+  
+
   constructor(private usuarioService: UsuarioService) { }
   getUsername(): string{
     return this.usuarioService.getUsername();
