@@ -14,16 +14,16 @@ export class LoginPage implements OnInit {
   constructor(private router: Router,  
     private alertController: AlertController,
     private usuarioService: UsuarioService) {}
-    irHome(){
-      this.router.navigate(['/home'])
+    irRestablececlave(){
+      this.router.navigate(['/restablececlave'])
     }
     async presentAlert() {
       const alert = await this.alertController.create({
-        header: 'Alert',
-        subHeader: 'Important message',
-        message: 'This is an alert!',
+        subHeader: 'Datos erroneos',
+        message: 'Usuario/Clave son incorrectos,ingrese los datos correctos.',
         buttons: ['OK'],
       });
+      
 
       await alert.present();
     }

@@ -24,7 +24,8 @@
           <ion-label position="floating">Contraseña</ion-label>
           <ion-input [(ngModel)]="password" type="password"></ion-input>
         </ion-item>
-        <ion-button color="secondary"(click)="iniciarSesion()">Iniciar Sesion</ion-button>
+          <a (click)="irRestablececlave()">¿Olvidaste tu contraseña?</a>
+        <ion-button color="secondary" expand="full" (click)="iniciarSesion()">Iniciar Sesion</ion-button>
         </div>
     </ion-card-content>
   </ion-card>
