@@ -1,0 +1,20 @@
+ion-content {
+    background-color: radial-gradient(circle at -4.17% 95.45%, #675c8c 0, #464483 25%, #0c2e79 50%, #001c70 75%, #000867 100%);
+}
+
+
+.ion-color-mystyle {
+	--ion-color-base: var(--ion-color-mystyle);
+	--ion-color-base-rgb: var(--ion-color-mystyle-rgb);
+	--ion-color-contrast: var(--ion-color-mystyle-contrast);
+	--ion-color-contrast-rgb: var(--ion-color-mystyle-contrast-rgb);
+	--ion-color-shade: var(--ion-color-mystyle-shade);
+	--ion-color-tint: var(--ion-color-mystyle-tint);
+}
+
+ion-card{
+  display: flex;
+  height: 100vh;
+  align-items: center; 
+  justify-content: center;
+}
