@@ -1,13 +1,36 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>perfil</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">perfil</ion-title>
+      <ion-title size="large">menu</ion-title>
     </ion-toolbar>
   </ion-header>
+  
 </ion-content>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Perfil del usuario</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">  
+    <ion-card>
+      <ion-card-header>
+        <img src="assets/imagenes/Logo_DuocUC.png" alt="Mi Imagen" style="width: 300px; height: auto;" />
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item>
+        <ion-label>Nombre del usuario:</ion-label>
+        <ion-label color="success">{{getUsername()}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Correo:</ion-label>
+          <ion-label color="success">Correo@duocuc.cl</ion-label>
+        </ion-item>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</div>

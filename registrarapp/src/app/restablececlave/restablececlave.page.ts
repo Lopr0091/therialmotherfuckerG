@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {UsuarioService} from'../usuario.service';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-restablececlave',
@@ -13,7 +14,8 @@ export class RestablececlavePage implements OnInit {
 
   constructor(private router: Router,  
     private alertController: AlertController,
-    private usuarioService: UsuarioService) { }
+    private usuarioService: UsuarioService,
+    public toastController: ToastController) { }
     
     async presentAlert() {
       const alert = await this.alertController.create({
@@ -27,10 +29,19 @@ export class RestablececlavePage implements OnInit {
     volverlogin(){
       this.router.navigate(['/login'])
     }
+    async mostrarToast() {
+      const toast = await this.toastController.create({
+        message: 'Se envio a tu correo el cambio de contraseña',
+        duration: 4000, // Duración en milisegundos
+        position: 'bottom', 
+      });
+      toast.present();
+    }
   EnvioCorreo() {
     
     if (this.username === 'User@duocuc.cl') {
       this.usuarioService.setUsername(this.username);
+      this.mostrarToast();
       this.router.navigateByUrl('/login');
     } else {
       console.log('Credenciales inválidas');
