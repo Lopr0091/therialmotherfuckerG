@@ -14,12 +14,46 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card-content>
-    <div id="Conteiner">
-      <a (click)="irHorario()">Ver Hora</a>
-    </div>
-  </ion-card-content>
-  <p>{{getUsername()}}</p>
+  <h1>Bienvenido: {{getUsername()}}</h1>
+  <ion-card>
+    <img src="assets/imagenes/noticia1.png" alt="Mi Imagen" style=" height: auto;" />
+    <ion-card-header>
+      <ion-card-title>Estudiantes de la Escuela de Construcción son reconocidos por aporte práctico en Corporación
+        Laudelina Araneda</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Distintos estamentos de estos seis establecimientos educativos sanbernardinos honraron el apoyo de nuestros
+      alumnos y la institución de Educación Superior en la construcción de bancas y jardineras, que son una ayuda
+      invaluable para sus recintos, que promueven la educación inclusiva y que ya han recibido a más de cien alumnos en
+      práctica de Duoc UC.
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <img src="assets/imagenes/noticia2.png" alt="Mi Imagen" style=" height: auto;" />
+    <ion-card-header>
+      <ion-card-title>Estudiantes dela Escuela de Diseño exploraron su creatividad en Nueva York</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Este año, se ha dado un paso más en Vinculación con el Medio, fortaleciendo el ámbito internacional y la
+      colaboración nacional, realizando este programa en conjunto con la Universidad Católica de Temuco, lo que
+      enriqueció aún más la experiencia y brindó oportunidades únicas para todos los participantes.
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <img src="assets/imagenes/noticia3.png" alt="Mi Imagen" style=" height: auto;" />
+    <ion-card-header>
+      <ion-card-title>Duoc UC organiza la primera Mesa Académica 5G de la región de Valparaíso</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      La Sede de Viña del Mar fue anfitriona y organizadora de la primera Mesa Académica 5G de la región de Valparaíso,
+      que reunió a profesionales y expertos de diversas universidades e institutos profesionales, con el propósito de
+      establecer vínculos de colaboración, discutir los avances de esta tecnología y encontrar oportunidades de
+      innovación.
+    </ion-card-content>
+  </ion-card>
 </ion-content>
 
 <ion-footer>
@@ -27,4 +61,3 @@
     <ion-title></ion-title>
   </ion-toolbar>
 </ion-footer>
-
