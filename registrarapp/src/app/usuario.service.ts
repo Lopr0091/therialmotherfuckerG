@@ -22,6 +22,9 @@ export class UsuarioService {
   getPassword(): string { // Agrega un método para obtener la contraseña
     return this.password;
   }
+  verificarLogin(username: string,password: string):boolean{
+    return username === this.getUsername() && password === this.getPassword();
+  }
 
   constructor() { }
 }

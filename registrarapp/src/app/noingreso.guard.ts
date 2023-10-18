@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 export class NoingresoGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return false;
+    state: RouterStateSnapshot) {
+    return true;
   }
   
 }

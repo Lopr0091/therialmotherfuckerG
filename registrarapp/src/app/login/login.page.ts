@@ -21,14 +21,6 @@ export class LoginPage implements OnInit {
   irRestablececlave() {
     this.router.navigate(['/restablececlave'])
   }
-  async presentAlert() {
-    const alert = await this.alertController.create({
-      subHeader: 'Datos erroneos',
-      message: 'Usuario/Clave son incorrectos,ingrese los datos correctos.',
-      buttons: ['OK'],
-    });
-    await alert.present();
-  }
   async mostrarToast() {
     const toast = await this.toastController.create({
       message: 'Inicio correctamente',
@@ -37,11 +29,26 @@ export class LoginPage implements OnInit {
     });
     toast.present();
   }
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      subHeader: 'Datos erroneos',
+      message: 'Usuario/Clave son incorrectos,ingrese los datos correctos.',
+      buttons: ['OK'],
+    });
+    await alert.present();
+  }
 
   iniciarSesion(){
     const username = this.username;
     const password = this.password;
-    this.router.navigate(['/home']);
+    this.usuarioService.setUsername(username);
+    this.usuarioService.setPassword(password);
+    if (this.usuarioService.verificarLogin(username, password)) {
+      this.router.navigate(['/home']);
+    } else {
+        console.log('Acceso denegado login');
+        this.presentAlert();
+    }
   }
   ngOnInit() {
 

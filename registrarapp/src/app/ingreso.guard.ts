@@ -18,12 +18,12 @@ export class IngresoGuard implements CanActivate {
     const password = this.usuarioService.getPassword();
 
     if (username === 'usuario' && password === 'clave') {
+      return true;
       console.log('Acceso permitido');
       const navigationExtras: NavigationExtras = {
         state: { username: username }
       };
       this.router.navigate(['/home'], navigationExtras);
-      return true;
     } else {
       console.log('Acceso denegado');
       this.router.navigate(['/login']);
