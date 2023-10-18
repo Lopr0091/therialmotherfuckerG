@@ -4,13 +4,24 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UsuarioService {
-  private username: string= '';
-  setUsername(username: string){
-    this.username=username;
+  private username: string = '';
+  private password: string = ''; // Agrega la contraseña
+
+  setUsername(username: string) {
+    this.username = username;
   }
-  getUsername(): string{
+
+  getUsername(): string {
     return this.username;
   }
-  constructor() { }
 
+  setPassword(password: string) { // Agrega un método para establecer la contraseña
+    this.password = password;
+  }
+
+  getPassword(): string { // Agrega un método para obtener la contraseña
+    return this.password;
+  }
+
+  constructor() { }
 }
