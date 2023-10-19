@@ -23,7 +23,7 @@ export class IngresoGuard implements CanActivate {
       const navigationExtras: NavigationExtras = {
         state: { username: username }
       };
-      this.router.navigate(['/home'], navigationExtras);
+      this.router.navigate(['/inicio'], navigationExtras);
     } else {
       console.log('Acceso denegado');
       this.router.navigate(['/login']);

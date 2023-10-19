@@ -44,7 +44,7 @@ export class LoginPage implements OnInit {
     this.usuarioService.setUsername(username);
     this.usuarioService.setPassword(password);
     if (this.usuarioService.verificarLogin(username, password)) {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/inicio']);
     } else {
         console.log('Acceso denegado login');
         this.presentAlert();
