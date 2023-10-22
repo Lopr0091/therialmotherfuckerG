@@ -8,16 +8,30 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-card>
-    <ion-card-content>
-      <ion-card-header>
-        <ion-card-title>Hora y Fecha</ion-card-title>
-      </ion-card-header>
-      <ion-item class="neon-black" position="floating">
-        <ion-datetime locale="es-ES">
-          <span slot="time-label">Tiempo</span>
-        </ion-datetime>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
-</ion-content>
+
+  <ion-header>
+    <ion-toolbar color="warning">
+      <ion-segment [(ngModel)]="selectedDay">
+        <ion-segment-button value="Lunes">Lunes</ion-segment-button>
+        <ion-segment-button value="Martes">Martes</ion-segment-button>
+        <ion-segment-button value="Miércoles">Miércoles</ion-segment-button>
+        <ion-segment-button value="Jueves">Jueves</ion-segment-button>
+        <ion-segment-button value="Viernes">Viernes</ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <div class="ion-padding">
+      <ng-container *ngFor="let dato of datito">
+        <ion-card *ngIf="selectedDay === dato.dia">
+          <ion-card-header>
+            <div class="card-title">{{ dato.title }}</div>
+          </ion-card-header>
+          <ion-card-content>
+            {{ dato.Horario }}
+          </ion-card-content>
+        </ion-card>        
+      </ng-container>
+    </div>
+  </ion-content>
+  
