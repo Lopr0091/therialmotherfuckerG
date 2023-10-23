@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
 import { UsuarioService } from '../usuario.service';
-import { ToastController } from '@ionic/angular';
-import { IngresoGuard } from '../ingreso.guard';
+import { ToastController, AlertController } from '@ionic/angular';
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -13,29 +13,43 @@ export class LoginPage implements OnInit {
   public username: string = '';
   public password: string = '';
 
-  constructor(private router: Router,
-    private alertController: AlertController,
+  constructor(private router: Router, 
     private usuarioService: UsuarioService,
-    public IngresoGuard: IngresoGuard,
-    public toastController: ToastController) { }
-  irRestablececlave() {
-    this.router.navigate(['/restablececlave'])
+  public toastController: ToastController,
+  public alertController: AlertController) {}
+  async mostrarToast() {
+    const toast = await this.toastController.create({
+      message: 'Inicio correctamente',
+      duration: 2000, // Son milisegundos
+      position: 'bottom',
+    });
+    toast.present();
   }
-  
 
-  iniciarSesion(){
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      subHeader: 'Datos erroneos',
+      message: 'Usuario/Clave son incorrectos, ingrese los datos correctos.',
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
+  iniciarSesion() {
     const username = this.username;
     const password = this.password;
-    this.usuarioService.setUsername(username);
-    this.usuarioService.setPassword(password);
+  
     if (this.usuarioService.verificarLogin(username, password)) {
+      console.log('ingresado login');
       this.router.navigate(['/inicio']);
     } else {
-        console.log('Acceso denegado login');
-        
+      this.presentAlert();
+      console.log('Acceso denegado login');
     }
   }
-  ngOnInit() {
-
+  irRestablececlave() {
+    this.router.navigate(['/restablececlave']);
   }
+
+  ngOnInit() {}
 }

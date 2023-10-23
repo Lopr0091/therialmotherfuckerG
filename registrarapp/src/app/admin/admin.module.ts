@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { RestablececlavePageRoutingModule } from './restablececlave-routing.module';
+import { AdminPageRoutingModule } from './admin-routing.module';
 
-import { RestablececlavePage } from './restablececlave.page';
+import { AdminPage } from './admin.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RestablececlavePageRoutingModule
+    AdminPageRoutingModule
   ],
-  declarations: [RestablececlavePage]
+  declarations: [AdminPage]
 })
-export class RestablececlavePageModule {}
+export class AdminPageModule {}

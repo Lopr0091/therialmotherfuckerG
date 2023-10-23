@@ -1,30 +1,49 @@
 import { Injectable } from '@angular/core';
-
+interface Usuario {
+  id: number;
+  nombre: string;
+  clave: string;
+  correo: string;
+}
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
-  private username: string = '';
-  private password: string = ''; // Agrega la contraseña
-
-  setUsername(username: string) {
-    this.username = username;
-  }
+  constructor() {}
 
   getUsername(): string {
-    return this.username;
+    const storedUsers = this.getStoredUsers();
+    if (storedUsers.length > 0) {
+      return storedUsers[0].nombre || '';
+    }
+    return '';
   }
-
-  setPassword(password: string) { // Agrega un método para establecer la contraseña
-    this.password = password;
+  
+  getPassword(): string {
+    const storedUsers = this.getStoredUsers();
+    if (storedUsers.length > 0) {
+      return storedUsers[0].clave || '';
+    }
+    return '';
   }
-
-  getPassword(): string { // Agrega un método para obtener la contraseña
-    return this.password;
+  getCorreo(): string {
+    const storedUsers = this.getStoredUsers();
+    if (storedUsers.length > 0) {
+      return storedUsers[0].correo || '';
+    }
+    return '';
   }
-  verificarLogin(username: string,password: string):boolean{
-    return username === this.getUsername() && password === this.getPassword();
+  
+  verificarLogin(username: string, password: string): boolean {
+    const storedUsers = this.getStoredUsers();
+    if (storedUsers.length > 0) {
+      return username === storedUsers[0].nombre && password === storedUsers[0].clave;
+    }
+    return false;
   }
-
-  constructor() { }
-}
+  
+  private getStoredUsers(): Usuario[] {
+    const usuariosStr = localStorage.getItem('usuarios');
+    return usuariosStr ? JSON.parse(usuariosStr) : [];
+  }
+}  

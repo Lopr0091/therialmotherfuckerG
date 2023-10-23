@@ -4,24 +4,47 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DbService {
-  private usuario: any[]=[];
-  private asignatura: any[]=[];
   constructor() { }
 
-  createUser(id: number, nombre: string, clave: string, correo: string){
-    const usuario={id, nombre, clave, correo };
-    this.usuario.push(usuario);
+  createUser(id: number, nombre: string, clave: string, correo: string) {
+    const usuario = { id, nombre, clave, correo };
+    const usuarios = this.getUsuariosFromLocalStorage();
+    usuarios.push(usuario);
+    this.saveUsuariosToLocalStorage(usuarios);
   }
-  getUserById(id: number){
-    return this.usuario.find(usuario=>usuario.id===id);
+
+  getUserById(id: number) {
+    const usuarios = this.getUsuariosFromLocalStorage();
+    return usuarios.find((usuario: Usuario) => usuario.id === id);
   }
-  updateUser(id: number, nombre: string, clave: string, correo: string){
-    const usuarioIndex=this.usuario.findIndex(usuario=>usuario.id===id);
-    if(usuarioIndex !== -1){
-      this.usuario[usuarioIndex]={id, nombre, clave, correo};
+
+  updateUser(id: number, nombre: string, clave: string, correo: string) {
+    const usuarios = this.getUsuariosFromLocalStorage();
+    const usuarioIndex = usuarios.findIndex((usuario: Usuario) => usuario.id === id);
+    if (usuarioIndex !== -1) {
+      usuarios[usuarioIndex] = { id, nombre, clave, correo };
+      this.saveUsuariosToLocalStorage(usuarios);
     }
   }
-  deleteUser(id: number){
-    this.usuario=this.usuario.filter(usuario=>usuario.id !==id);
+
+  deleteUser(id: number) {
+    const usuarios = this.getUsuariosFromLocalStorage();
+    const updatedUsuarios = usuarios.filter((usuario: Usuario) => usuario.id !== id);
+    this.saveUsuariosToLocalStorage(updatedUsuarios);
   }
+
+  private getUsuariosFromLocalStorage() {
+    const usuariosStr = localStorage.getItem('usuarios');
+    return usuariosStr ? JSON.parse(usuariosStr) : [];
+  }
+
+  private saveUsuariosToLocalStorage(usuarios: any[]) {
+    localStorage.setItem('usuarios', JSON.stringify(usuarios));
+  }
+}
+interface Usuario{
+  id: number;
+  nombre: string;
+  clave: string;
+  correo: string;
 }

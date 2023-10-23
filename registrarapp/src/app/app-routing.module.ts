@@ -21,10 +21,6 @@ const routes: Routes = [
     canActivate:[NoingresoGuard]
   },
   {
-    path: 'restablececlave',
-    loadChildren: () => import('./restablececlave/restablececlave.module').then( m => m.RestablececlavePageModule)
-  },
-  {
     path: 'inicio',
     loadChildren: () => import('./inicio/inicio.module').then( m => m.InicioPageModule),
     canActivate:[IngresoGuard]
@@ -42,10 +38,16 @@ const routes: Routes = [
     loadChildren: () => import('./horario/horario.module').then( m => m.HorarioPageModule)
   },
   {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
+  },
+  {
     path: '**',
     component: NotfoundPage,
     loadChildren: () => import('./notfound/notfound.module').then( m => m.NotfoundPageModule)
   },
+ 
+
 
 ];
 
