@@ -16,6 +16,11 @@ export class InicioPage implements OnInit {
   irHorario() {
     this.router.navigate(['/horario'])
   }
+  logout() {
+    localStorage.removeItem('storedUsername');
+    localStorage.removeItem('storedPassword');
+    this.router.navigate(['/login']);
+  }
   ngOnInit() {
   }
 

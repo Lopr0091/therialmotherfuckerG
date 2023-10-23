@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Route,Router } from '@angular/router';
 interface Usuario {
   id: number;
   nombre: string;
@@ -46,4 +47,6 @@ export class UsuarioService {
     const usuariosStr = localStorage.getItem('usuarios');
     return usuariosStr ? JSON.parse(usuariosStr) : [];
   }
+
+  
 }  
