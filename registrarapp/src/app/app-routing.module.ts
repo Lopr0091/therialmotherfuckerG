@@ -42,6 +42,10 @@ const routes: Routes = [
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
   },
   {
+    path: 'qr',
+    loadChildren: () => import('./qr/qr.module').then( m => m.QrPageModule)
+  },
+  {
     path: '**',
     component: NotfoundPage,
     loadChildren: () => import('./notfound/notfound.module').then( m => m.NotfoundPageModule)

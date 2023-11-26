@@ -48,7 +48,7 @@ export class LoginPage implements OnInit {
     }
   }
   irRestablececlave() {
-    this.router.navigate(['/restablececlave']);
+    this.router.navigate(['/qr']);
   }
 
   ngOnInit() {}
