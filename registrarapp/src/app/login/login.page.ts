@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../usuario.service';
 import { ToastController, AlertController } from '@ionic/angular';
+import { SharedService } from '../shared.service';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class LoginPage implements OnInit {
   constructor(private router: Router, 
     private usuarioService: UsuarioService,
   public toastController: ToastController,
-  public alertController: AlertController) {}
+  public alertController: AlertController,
+  private sharedService: SharedService) {}
   async mostrarToast() {
     const toast = await this.toastController.create({
       message: 'Inicio correctamente',
@@ -48,8 +50,19 @@ export class LoginPage implements OnInit {
     }
   }
   irRestablececlave() {
-    this.router.navigate(['/qr']);
+    this.router.navigate(['/cambioDeClave']);
   }
 
-  ngOnInit() {}
+  llenardb(){
+    this.sharedService.llenar();
+  }
+  ionViewDidEnter() {
+    this.sharedService.llenar();
+  }
+  
+  ngOnInit() {
+    this.sharedService.llenar();
+    this.sharedService.ver();
+  }
+  
 }

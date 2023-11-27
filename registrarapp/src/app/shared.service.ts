@@ -1,16 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { DbService } from '../db.service';
+import { Injectable } from '@angular/core';
+import { DbService } from './db.service';
 
-@Component({
-  selector: 'app-admin',
-  templateUrl: './admin.page.html',
-  styleUrls: ['./admin.page.scss'],
+@Injectable({
+  providedIn: 'root',
 })
-export class AdminPage implements OnInit {
-  usuarios: any[] = [];
-
+export class SharedService {
   constructor(private dbService: DbService) {}
-
+  usuarios: any[] = [];
   llenar() {
     const id: number = 2;
     const nombre: string = 'NombreUsuario2';
@@ -37,14 +33,6 @@ export class AdminPage implements OnInit {
       this.usuarios.push(usuario);
     }
   }
-
-  ionViewDidEnter() {
-    this.llenar();
-  }
-
-  ngOnInit() {
-    this.llenar();
-    this.ver();
-    
-  }
+  
 }
+
