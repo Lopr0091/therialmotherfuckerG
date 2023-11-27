@@ -9,9 +9,9 @@ export class SharedService {
   usuarios: any[] = [];
   llenar() {
     const id: number = 2;
-    const nombre: string = 'Usuario2';
+    const nombre: string = 'NombreUsuario2';
     const clave: string = 'clave2';
-    const correo: string = 'correo2@ejemplo.com';
+    const correo: string = 'correo1@ejemplo.com';
   
     // Verificar si el usuario ya existe antes de insertarlo
     if (!this.dbService.getUserById(id)) {
@@ -33,6 +33,6 @@ export class SharedService {
       this.usuarios.push(usuario);
     }
   }
-
+  
 }
 
