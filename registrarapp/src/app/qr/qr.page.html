@@ -1,8 +1,8 @@
 
 <ion-header [style.visibility]="content_visibility">
-  <ion-toolbar color="primary">
+  <ion-toolbar color="warning">
     <ion-title>
-      QR Code
+      Escaneo de QR
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,14 +11,14 @@
 
 
   <ion-button 
-    expand="block" 
-    class="ion-margin" 
-    (click)="startScan()">
-    Scan QR Code
-  </ion-button>
+      expand="full" 
+      (click)="startScan()"
+      style="position:block; margin-top: 70%; ">
+      Escanea el QR
+    </ion-button>
 
   <ion-item *ngIf="scannedResult">
-    <ion-label class="ion-text-wrap">Scanned Result: {{scannedResult}}</ion-label>
+    <ion-label class="ion-text-wrap">Asistencia tomada: {{scannedResult}}</ion-label>
   </ion-item>
   
 </ion-content>
