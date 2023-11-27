@@ -6,13 +6,11 @@
   </ion-header>
 
   <ion-card>
-    <ion-card-header>
+    <div id="Conteiner">
       <img src="assets/imagenes/Logo_DuocUC.png" alt="Mi Imagen" style="width: 300px; height: auto;" />
-
-    </ion-card-header>
-
+      <ion-card-header></ion-card-header>
     <ion-card-content>
-      <div id="Conteiner">
+      
         <ion-item class="neon-black">
           <ion-label position="floating" class="neon-blue">Usuario</ion-label>
           <ion-input [(ngModel)]="username" type="text" class="neon-blue"></ion-input>
@@ -21,9 +19,11 @@
           <ion-label position="floating">Contraseña</ion-label>
           <ion-input [(ngModel)]="password" type="password"></ion-input>
         </ion-item>
-        <a (click)="irRestablececlave()">¿Olvidaste tu contraseña?</a>
-        <ion-button color="secondary" expand="full" (click)="iniciarSesion()">Iniciar Sesion</ion-button>
-      </div>
+        <ion-item-sliding>
+        <ion-button color="secondary"  (click)="iniciarSesion()">Iniciar Sesion</ion-button>
+      </ion-item-sliding>
+      <a (click)="irRestablececlave()">¿Olvidaste tu contraseña?</a>
     </ion-card-content>
+  </div>
   </ion-card>
 </ion-content>
