@@ -1,46 +1,23 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>admin</ion-title>
-  </ion-toolbar>
-</ion-header>
+<!-- admin.page.html -->
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-content class="ion-text-center ion-padding">
+  <ion-header>
     <ion-toolbar>
-      <ion-title size="large">admin</ion-title>
+      <ion-title>Olvidó su Contraseña</ion-title>
     </ion-toolbar>
   </ion-header>
-  <button (click)="llenar()">Llenar</button>
 
-  <ion-list *ngIf="usuarios.length > 0">
-    <ion-list-header>
-      <ion-label>
-        ID
-      </ion-label>
-      <ion-label>
-        Nombre
-      </ion-label>
-      <ion-label>
-        Clave
-      </ion-label>
-      <ion-label>
-        Correo
-      </ion-label>
-    </ion-list-header>
-    <ion-item *ngFor="let usuario of usuarios">
-      <ion-label>
-        {{ usuario.id }}
-      </ion-label>
-      <ion-label>
-        {{ usuario.nombre }}
-      </ion-label>
-      <ion-label>
-        {{ usuario.clave }}
-      </ion-label>
-      <ion-label>
-        {{ usuario.correo }}
-      </ion-label>
+  <form (ngSubmit)="cambiarContrasena()" class="ion-padding">
+    <ion-item>
+      <ion-label position="floating">Nombre de Usuario</ion-label>
+      <ion-input [(ngModel)]="nombreUsuario" name="nombreUsuario" type="text"></ion-input>
     </ion-item>
-  </ion-list>
-  
+
+    <ion-item>
+      <ion-label position="floating">Nueva Contraseña</ion-label>
+      <ion-input [(ngModel)]="nuevaClave" name="nuevaClave" type="password"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit">Cambiar Contraseña</ion-button>
+  </form>
 </ion-content>

@@ -50,7 +50,7 @@ export class LoginPage implements OnInit {
     }
   }
   irRestablececlave() {
-    this.router.navigate(['/cambioDeClave']);
+    this.router.navigate(['/admin']);
   }
 
   llenardb(){

@@ -17,7 +17,10 @@ export class DbService {
     const usuarios = this.getUsuariosFromLocalStorage();
     return usuarios.find((usuario: Usuario) => usuario.id === id);
   }
-
+  getUserByName(nombre: string): Usuario | undefined {
+    const usuarios = this.getUsuariosFromLocalStorage();
+    return usuarios.find((usuario: Usuario) => usuario.nombre === nombre);
+  }
   updateUser(id: number, nombre: string, clave: string, correo: string) {
     const usuarios = this.getUsuariosFromLocalStorage();
     const usuarioIndex = usuarios.findIndex((usuario: Usuario) => usuario.id === id);
